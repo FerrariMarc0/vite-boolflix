@@ -1,5 +1,5 @@
 <script>
-import axios from 'axios';
+import {store} from '../store'
     import MovieCard from './MovieCard.vue';
     export default {
         name: 'Main',
@@ -8,25 +8,36 @@ import axios from 'axios';
         },
         data() {
             return {
-                movies: []
+                store
             }
-        },
-        created(){
-            axios.get('https://api.themoviedb.org/3/trending/movie/week?api_key=5adcd134eb7fa6e79d60ffe6d8f08f2b').then((response) =>{
-                console.log(response);
-                this.movies = response.data.results;
-            })
         }
     }
 </script>
 
 <template>
-    <ul v-for="movie in movies">
-        <MovieCard/>
-    </ul>
+    <div class="container">
+        <div class="box" v-for="movie in store.movies">
+            <MovieCard  
+                :name="movie.title" 
+                :original="movie.original_title" 
+                :language="movie.original_language" 
+                :vote="movie.vote_average"
+            />
+        </div>
+    </div>
     
 </template>
 
 <style lang="scss" scoped>
+    .container{
+        display: flex;
+        padding: 20px;
+        flex-wrap: wrap;
+        .box{
+            flex-basis: calc(100% / 3);
+            padding: 10px;
+            line-height: 30px;
+        }
+    }
 
 </style>
