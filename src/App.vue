@@ -2,7 +2,7 @@
   import AppHeader from './components/AppHeader.vue'
   import AppMain from './components/AppMain.vue'
   export default{
-    name: 'app',
+    name: 'BoolFlix',
     components: {
       AppHeader,
       AppMain
