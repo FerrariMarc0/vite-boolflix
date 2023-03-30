@@ -19,20 +19,20 @@ import {store} from '../store'
         
         <div class="box" v-for="movie in store.movies">
             <MovieCard  
+                :img="movie.poster_path"
                 :name="movie.title"
                 :original="movie.original_title" 
                 :language="movie.original_language" 
-                :vote="movie.vote_average"
-            />
+                :vote="movie.vote_average"/>
         </div>
 
         <div class="box" v-for="tv in store.tvSeries">
-            <MovieCard  
+            <MovieCard 
+                :img="tv.poster_path"
                 :title= "tv.name"
                 :original="tv.original_name" 
                 :language="tv.original_language" 
-                :vote="tv.vote_average"
-            />
+                :vote="tv.vote_average"/>
         </div>
     </div>
     

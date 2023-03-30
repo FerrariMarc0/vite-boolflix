@@ -10,7 +10,8 @@ import CountryFlag from 'vue-country-flag-next'
             name: String,
             original: String,
             language: String,
-            vote: Number
+            vote: Number,
+            img: String
         },
         computed: {
             movieFlag(){
@@ -36,6 +37,7 @@ import CountryFlag from 'vue-country-flag-next'
 
 <template>
     <article>
+        <img v-if="img" :src="'https://image.tmdb.org/t/p/w342' + img" :alt="title" />
         <h1>Titolo: {{ name }} {{ title }}</h1>
         <h2>Titolo originale: {{original}}</h2>
         <h4>Lingua: <country-flag :country='movieFlag' size='normal'/></h4>
