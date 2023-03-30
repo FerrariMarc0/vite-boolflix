@@ -16,12 +16,22 @@ import {store} from '../store'
 
 <template>
     <div class="container">
+        
         <div class="box" v-for="movie in store.movies">
             <MovieCard  
-                :name="movie.title" 
+                :name="movie.title"
                 :original="movie.original_title" 
                 :language="movie.original_language" 
                 :vote="movie.vote_average"
+            />
+        </div>
+
+        <div class="box" v-for="tv in store.tvSeries">
+            <MovieCard  
+                :title= "tv.name"
+                :original="tv.original_name" 
+                :language="tv.original_language" 
+                :vote="tv.vote_average"
             />
         </div>
     </div>
