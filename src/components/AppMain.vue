@@ -15,10 +15,11 @@ import {store} from '../store'
 </script>
 
 <template>
+    <h1>Originali Netflix</h1>
     <div class="container">
         
         <div class="box" v-for="movie in store.movies">
-            <MovieCard  
+            <MovieCard
                 :img="movie.poster_path"
                 :name="movie.title"
                 :original="movie.original_title" 
@@ -27,7 +28,7 @@ import {store} from '../store'
         </div>
 
         <div class="box" v-for="tv in store.tvSeries">
-            <MovieCard 
+            <MovieCard
                 :img="tv.poster_path"
                 :title= "tv.name"
                 :original="tv.original_name" 
@@ -39,14 +40,17 @@ import {store} from '../store'
 </template>
 
 <style lang="scss" scoped>
+    h1{
+        margin: 30px 0 0 30px;
+    }
     .container{
         display: flex;
         padding: 20px;
-        flex-wrap: wrap;
+        overflow: scroll;
         .box{
-            flex-basis: calc(100% / 3);
+            flex-basis: calc(100% / 5);
             padding: 10px;
-            line-height: 30px;
+            
         }
     }
 
