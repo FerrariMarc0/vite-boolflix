@@ -1,3 +1,4 @@
+// Import delle dipendenze necessarie
 import { createApp } from 'vue'
 import './assets/scss/main.scss';
 import App from './App.vue'

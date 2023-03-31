@@ -1,13 +1,13 @@
 <script>
 import {store} from '../store'
-    import MovieCard from './MovieCard.vue';
+    import MovieCard from './MovieCard.vue'; // Importa il componente MovieCard da './MovieCard.vue'
     export default {
         name: 'Main',
         components: {
             MovieCard
         },
         data() {
-            return {
+            return {    // Restituisce lo store come dato del componente
                 store
             }
         }
@@ -17,23 +17,27 @@ import {store} from '../store'
 <template>
     <h1>Originali Netflix</h1>
     <div class="container">
-        
+        <!-- Per ogni oggetto nel array 'movies' dello store -->
         <div class="box" v-for="movie in store.movies">
-            <MovieCard
+            <!-- Mostra il componente MovieCard passando le proprietà dell'oggetto corrente -->
+            <MovieCard      
                 :img="movie.poster_path"
                 :name="movie.title"
                 :original="movie.original_title" 
                 :language="movie.original_language" 
-                :vote="movie.vote_average"/>
+                :vote="movie.vote_average"
+                :overview="movie.overview"
+                />
         </div>
-
+        <!-- Per ogni oggetto nel array 'tvSeries' dello store -->
         <div class="box" v-for="tv in store.tvSeries">
-            <MovieCard
+            <MovieCard  
                 :img="tv.poster_path"
                 :title= "tv.name"
                 :original="tv.original_name" 
                 :language="tv.original_language" 
-                :vote="tv.vote_average"/>
+                :vote="tv.vote_average"
+                :overview="tv.overview"/>
         </div>
     </div>
     
@@ -42,16 +46,18 @@ import {store} from '../store'
 <style lang="scss" scoped>
     h1{
         margin: 30px 0 0 30px;
+        text-transform: uppercase;
     }
     .container{
         display: flex;
         padding: 20px;
         overflow: scroll;
         .box{
-            flex-basis: calc(100% / 5);
-            padding: 10px;
+            padding-left: .3125rem;
             
+            img{
+                max-height: 100%;
+            }
         }
     }
-
 </style>
