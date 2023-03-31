@@ -20,7 +20,7 @@ import MovieCard from './MovieCard.vue';
             <img :src="'https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png'" alt="Netflix logo">   
             <!-- Navigazione -->
             <ul class="list_margin">
-                <li v-for="item in store.navGen"><a href="#">{{ item }}</a></li>
+                <li v-for="item in store.navGen" :key="item"><a href="#">{{ item }}</a></li>
             </ul>
         </div>
         <div>
@@ -90,7 +90,7 @@ import MovieCard from './MovieCard.vue';
             
             a{
                 text-decoration: none;
-                font-weight: 500;
+                font-weight: 600;
                 font-size: 1.125rem;
                 color: #000;
             }
