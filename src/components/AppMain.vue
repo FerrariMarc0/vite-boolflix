@@ -15,10 +15,15 @@ import {store} from '../store'
 </script>
 
 <template>
-    <h1>Originali Netflix</h1>
+    <div>
+        <h1 class="message" v-if="store.movies.length === 0 && store.tvSeries.length === 0">Cerca un titolo</h1>
+    </div>
+    
+    <h1 v-if="store.movies.length > 0 || store.tvSeries.length > 0">Originali Booflix</h1>
     <div class="container">
+        
         <!-- Per ogni oggetto nel array 'movies' dello store -->
-        <div class="box" v-for="movie in store.movies">
+        <div class="box" v-for="movie in store.movies" :key="movie">
             <!-- Mostra il componente MovieCard passando le proprietà dell'oggetto corrente -->
             <MovieCard      
                 :img="movie.poster_path"
@@ -30,7 +35,7 @@ import {store} from '../store'
                 />
         </div>
         <!-- Per ogni oggetto nel array 'tvSeries' dello store -->
-        <div class="box" v-for="tv in store.tvSeries">
+        <div class="box" v-for="tv in store.tvSeries" :key="tv">
             <MovieCard  
                 :img="tv.poster_path"
                 :title= "tv.name"
@@ -44,13 +49,17 @@ import {store} from '../store'
 </template>
 
 <style lang="scss" scoped>
+    .message{
+        text-align: center;
+    }
     h1{
-        margin: 30px 0 0 30px;
+        margin: 6.25rem 0 0 1.875rem;
         text-transform: uppercase;
+        color: rgb(199, 16, 16);
     }
     .container{
         display: flex;
-        padding: 20px;
+        padding: 1.25rem;
         overflow: scroll;
         .box{
             padding-left: .3125rem;

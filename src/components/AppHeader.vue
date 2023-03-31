@@ -26,7 +26,7 @@ import MovieCard from './MovieCard.vue';
         <div>
             <div>   <!-- Barra di ricerca -->
                 <div v-if="!store.showSearch" @click="store.showSearch = true">
-                    <font-awesome-icon icon="fa-solid fa-magnifying-glass"/>
+                    <font-awesome-icon icon="fa-solid fa-magnifying-glass" class="find"/>
                 </div>
                     <!-- Form per la ricerca -->
                 <div v-if="store.showSearch">
@@ -62,12 +62,15 @@ import MovieCard from './MovieCard.vue';
             border: none;
             padding: 10px;
             background-color: #000;
-            color: #fff;
+            color: rgb(199, 16, 16);
         }
         .search_nav{
             text-transform: uppercase;
             font-weight: 600;
             gap: 10px;
+        }
+        .find{
+            color: rgb(199, 16, 16);
         }
         .icon_padding{
             padding: 0 10px;

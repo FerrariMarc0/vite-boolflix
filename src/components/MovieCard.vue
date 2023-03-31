@@ -12,8 +12,7 @@ import CountryFlag from 'vue-country-flag-next'
             language: String,
             vote: Number,
             img: String,
-            overview: String,
-            cast: array
+            overview: String
         },
         computed: {     // Restituisce il codice della bandiera del paese a partire dalla lingua
             movieFlag(){
@@ -68,7 +67,6 @@ import CountryFlag from 'vue-country-flag-next'
     }
     .card_container{
         position: relative;
-        perspective: 1000px;
     }
     img{
         display: block;
